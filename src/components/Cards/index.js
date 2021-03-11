@@ -4,21 +4,20 @@ import TinderCard from 'react-tinder-card'
 import db from '../../firebase'
 
 function Cards() {
-  const [people, setPeople] = useState([
-    {
-      name: "ana",
-      url: "https://www.randomlists.com/img/people/jesus_christ.jpg"
-    },
-    {
-      name: "mario",
-      url: "https://www.randomlists.com/img/people/eva_longoria.jpg"
-    },
-  ])
+  const [people, setPeople] = useState([])
   
   useEffect(() => {
-    db.collection('people').onSnapshot(snapshot => (
-      setPeople(snapshot.docs.map(doc => doc.data()))
+    
+    const onLoad = db
+      .collection('people')
+      .onSnapshot((snapshot) => (
+        setPeople(snapshot.docs.map(doc => doc.data()))
     ))
+
+    return () => {
+      onLoad()
+    }
+
   }, [])
 
   return (

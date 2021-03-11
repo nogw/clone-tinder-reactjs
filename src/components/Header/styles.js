@@ -10,6 +10,11 @@ export const Container = styled.div`
     margin: 20px;
   }
 
+  .iconArrow {
+    position: relative;
+    left: 5px;
+  }
+
   img {
     object-fit: contain;
     width: 90px;
