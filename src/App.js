@@ -1,10 +1,13 @@
-import Tinder from './components/Tinder';
-import GlobalStyle from './styles/GlobalStyle'
+import React from 'react';
+import CardContainer from './components/CardsContainer';
+import Navbar from './components/Navbar';
+import GlobalStyle from './styles';
 
 function App() {
   return (
     <>
-      <Tinder />
+      <Navbar />
+      <CardContainer/>
       <GlobalStyle />
     </>
   );
